@@ -1,0 +1,57 @@
+# net-python
+#元组的定义
+元组和我们之前讲过的数字，字符串和列表一样，也是 Python 中的一种对象类型，它和列表比较想
+象，所以一般会被忽略掉，但是由于其特殊性，在实际应用的时候又很容易犯错。
+首先我们来看一个例子：
+'''
+>>> a = 'abc'
+>>> a
+'abc'
+>>> b = 'def',123,[1,2,3]
+>>> b
+('def', 123, [1, 2, 3])
+>>> type(a)
+<class 'str'>
+>>> type(b) #type是查看对象类型的函数
+<class 'tuple'>
+索引 & 切片
+既然元组也是列表，那么它跟字符串和列表的基本操作相仿，每个元素理应有自己对应的索引，并且可
+切片。
+>>> str = (1,2,'234',(1,2),['c','c++','python'])
+>>> str[2]
+'234'
+>>> str[4]
+['c', 'c++', 'python']
+>>> str[4][2]
+'python'
+
+>>> dir(tuple)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
+'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+'__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__',
+'__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__',
+'__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr_
+'__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+虽然元组不可修改，但是元组和列表是可以互相转化的，可以用 list() 和 tuple() 实现。
+
+>>> a = ('a','123',[1,2,3])
+>>> type(a)
+<class 'tuple'>
+>>> a = list(a)
+>>> type(a)
+<class 'list'>
+>>> a = tuple(a)
+>>> type(a)
+<class 'tuple'>
+
+
+还有一点需要提醒的是，当元组中只有一个元素的时候，要在元素的后面跟上英文的逗号，要不然
+Python 会误会你想表达的意思，请看下面的例子。
+
+>>> str1 = ('rocky',)
+>>> type(str1)
+<class 'tuple'>
+>>> str2 = ('rocky')
+>>> type(str2)
+<class 'str'>
+
