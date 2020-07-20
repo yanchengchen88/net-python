@@ -1,0 +1,89 @@
+# net-python
+
+#常用列表函数
+作为 Python 中出了名的苦哈哈，它必然有很多的函数去实现功能，感兴趣的朋友们可以用 dir(list) 查
+看，我在这里主要说一下那些经常用到的。
+1.append：这个其实我们在昨天的文章 （ 零基础学习 Python 之列表 ( 一 ) ）中说过，它执行的结果
+就是将某个元素加入到一个一直列表的最右边。
+2.extend：官方的说法是从可迭代的对象那里获取元素，将它们追加到已知的列表中，从而达到扩充的
+目的，其实就是能够将两个列表合并。
+'''
+>>> str = [1,2,3,4,5,6,7,8]
+>>> str[::-1]
+[8, 7, 6, 5, 4, 3, 2, 1]
+>>> str[::-2]
+[8, 6, 4, 2]
+>>> str = ['python','c++','java']
+>>> str[0] = 'c#'
+>>> str
+['c#', 'c++', 'java']
+>>> name = 'rocky'
+>>> name[0] = 'R'
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
+>>> str = ['python','c++','java']
+>>> str[3] = 'c#'
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> str.append('c#')
+>>> str
+['python', 'c++', 'java', 'c#']
+>>> str = [1,2,3,4,5]
+>>> str.append(6)
+>>> str
+[1, 2, 3, 4, 5, 6]
+3.count：这是一个可以帮我们搞清楚列表中的元素重复出现次数的方法。
+4.index：该函数能够查到你想查的函数在列表中第一次出现的位置，比起之前的文章我们说的索引，
+这个才是真真正正的索引。
+5.insert：这个厉害了，之前在 1 和 2 中我们说的 append 和 extend 只是能在列表的最右添加元素，
+而 insert 可以在列表的任意位置增加一个元素。
+6.remove & pop：列表中的元素不光能够增加元素，还可以删除元素， remove() 和 pop() 就是列表用
+来删除元素的函数。romove() 函数删除元素首先这个元素必须要存在，其次它是在原列表上进行删
+除，当列表中有重复元素的时候，只删除第 1 个。
+pop() 函数如果填写删除元素的索引的话，那么就是删除该元素，如果没有制定删除元素的索引，则删
+除列表的最后一个元素，并且 pop() 函数有返回值，返回的就是删除的那个元素。
+>>> str = [1,2,3,4,5]
+>>> str1 = ['abc','def']
+>>> str.extend(str1)
+>>> str
+[1, 2, 3, 4, 5, 'abc', 'def']
+>>> a = [1,2,3,4,5,1,2,3]
+>>> a.count(1)
+2
+>>> a.append('a')
+>>> a.append('a')
+>>> a
+[1, 2, 3, 4, 5, 1, 2, 3, 'a', 'a']
+>>> a.count('a')
+2
+>>> a.count('b')
+0
+>>> a = [1,2,3,4,'abc','def']
+>>> a.index(2)
+1
+>>> a = [1,2,3,4,'abc','def']
+>>> a.insert(0,'rocky')
+>>> a
+['rocky', 1, 2, 3, 4, 'abc', 'def']
+>>> a = [1,2,3,4,1]
+>>> a.remove(1)
+>>> a
+[2, 3, 4, 1]
+>>> a.remove('a')
+Traceback (most recent call last):
+File "<stdin>", line 1, in <module>
+ValueError: list.remove(x): x not in list
+7.reverse：这个函数很简单，就是直接把列表的元素顺序反过来。
+>>> a = [1,2,3,4,1]
+>>> a.reverse()
+>>> a
+[1, 4, 3, 2, 1]
+>>> a = ['c','d','a','k']
+>>> a.sort()
+>>> a
+['a', 'c', 'd', 'k']
+>>> a.sort(reverse = True)
+>>> a
+['k', 'd', 'c', 'a']
