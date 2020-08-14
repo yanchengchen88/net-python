@@ -1,0 +1,3 @@
+# net-python
+root = tree.getroot()
+root.tag
