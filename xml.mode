@@ -1,0 +1,7 @@
+# net-python
+xml.etree.elementtree
+xml.xpath
+tag: string
+text:string
+attrib: dictionary
+tail:string
