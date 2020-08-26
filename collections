@@ -1,0 +1,9 @@
+# net-python
+
+>>> from collections import namedtuple
+>>> people = namedtuple('people', 'name age like')
+>>> Rocky = people(name = 'rocky', age = 23, like = 'python')
+>>> print(Rocky)
+people(name='rocky', age=23, like='python')
+>>> print(Rocky.name)
+rocky
